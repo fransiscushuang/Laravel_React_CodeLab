@@ -25,6 +25,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/story', 'StoriesController@index')->name('story.list'); //1st Type
+    Route::get('/story/view/{id}', [StoriesController::class, 'view'])->name('story.view'); //1st Type
     Route::get('/story/add', [StoriesController::class, 'create'])->name('story.add'); //2nd Type , Help in changing name
     Route::post('/story/save', [StoriesController::class, 'store'])->name('story.save');
 });

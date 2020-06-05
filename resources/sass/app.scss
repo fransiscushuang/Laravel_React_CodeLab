@@ -1,8 +1,17 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+@import "~medium-editor/src/sass/medium-editor";
+@import "~medium-editor/src/sass/themes/beagle";
+
+.table thead tr {
+    td,
+    th {
+        border-top: 0px;
+    }
+}

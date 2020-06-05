@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStoriesTable extends Migration
+class CreateStoryUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreateStoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stories', function (Blueprint $table) {
+        Schema::create('story_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description');
-            $table->date('due_date')->nullable();
-            $table->unsignedInteger('story_points')->nullable();
-            $table->string('story_type');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('epic_id');
+            $table->unsignedBigInteger('story_id');
             $table->timestamps();
 
             $table->index('user_id');
-            $table->index('epic_id');
+            $table->index('story_id');
         });
     }
 
@@ -36,6 +31,6 @@ class CreateStoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stories');
+        Schema::dropIfExists('story_users');
     }
 }
