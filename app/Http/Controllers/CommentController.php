@@ -19,7 +19,7 @@ class CommentController extends Controller
 
         $comment = $story->comments()->create([
             'body' => $postData['comment'],
-            'user_id' => $request->user->id,
+            'user_id' => $request->user()->id,
         ]);
 
 
