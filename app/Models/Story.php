@@ -35,6 +35,13 @@ class Story extends Model
         return $this->hasMany(StoryUsers::class)->with('user');
     }
 
+    /**
+     * Get all of the story's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 
     public function creator()
     {

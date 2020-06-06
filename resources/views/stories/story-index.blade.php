@@ -21,19 +21,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php $no = (($stories->currentpage() - 1) * $stories->perpage()) + 1; @endphp
                             @foreach($stories as $story)
                             <tr>
                                 <td>
                                     <div class="d-flex flex-column">
-                                    <h5 class="text-primary font-weight-bold"><a href="{{ route('story.view', $story->id) }}">#{{ $no }} {{ $story->title }}</a></h5>
+                                    <h5 class="text-primary font-weight-bold"><a href="{{ route('story.view', $story->id) }}">#{{ $story->id }} {{ $story->title }}</a></h5>
                                         <h6 class="font-weight-bold">Created by <span class="text-primary inline">{{ auth()->user()->name }}</span> Due Date {{ $story->due_date }}</h6>
                                     </div>
                                 </td>
                                 <td class="font-weight-bold">{{ $story->story_type }}</td>
                                 <td class="font-weight-bold">{{ $story->created_at }}</td>
                             </tr>
-                            @php $no++; @endphp
                             @endforeach
                         </tbody>
                     </table>

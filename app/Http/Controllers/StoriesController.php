@@ -13,7 +13,7 @@ class StoriesController extends Controller
     public function index()
     {
         $stories = Story::query()
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'asc')
             ->paginate(5);
 
         return view('stories.story-index')->with('stories', $stories);
