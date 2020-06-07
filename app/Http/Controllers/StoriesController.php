@@ -58,11 +58,9 @@ class StoriesController extends Controller
         return redirect()->route('story.list');
     }
 
-    public function view($id, Story $story)
+    public function view(Story $story)
     {
-        $story = $story->where('id', $id)
-            ->first();
-
+        $story->load(['comments']);
         return view('stories.story-view')->with('story', $story);
     }
 }

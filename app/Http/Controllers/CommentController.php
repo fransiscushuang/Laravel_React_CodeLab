@@ -22,7 +22,6 @@ class CommentController extends Controller
             'user_id' => $request->user()->id,
         ]);
 
-
         return response($comment, 201);
     }
 }

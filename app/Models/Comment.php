@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $guarder = [];
-    protected $fillable = ['body'];
+    protected $guarded = [];
+
     /**
      * Get the owning commentable model.
      */
